@@ -1,52 +1,92 @@
 let myDishes = [
   {
-    "name": "Spaghetti Carbonara",
-    "price": 12.99,
-    "description": "Cremige Pasta mit Speck und Parmesan, verfeinert mit schwarzem Pfeffer und Eigelb."
+    "name": "Classic Cheeseburger",
+    "category": "Burger & Sandwiches",
+    "price": 12.50,
+    "description": "Saftiges Rindfleisch-Patty mit Cheddar, Salat, Tomaten, Zwiebeln und hausgemachter Sauce im Brioche-Brötchen."
   },
   {
-    "name": "Vegetarische Lasagne",
-    "price": 10.50,
-    "description": "Herzhafte Lasagne mit Schichten aus Gemüse, Tomatensauce, Béchamel und geschmolzenem Käse."
+    "name": "Chicken Burger",
+    "category": "Burger & Sandwiches",
+    "price": 11.90,
+    "description": "Knuspriges Hähnchenfilet mit frischem Salat, Tomaten und cremiger Mayonnaise im Burger-Brötchen."
   },
   {
-    "name": "Gegrilltes Hähnchen mit Quinoa",
-    "price": 14.20,
-    "description": "Saftiges Hähnchenbrustfilet serviert mit einem Quinoa-Salat, frischen Kräutern und Zitronendressing."
+    "name": "BBQ Bacon Burger",
+    "category": "Burger & Sandwiches",
+    "price": 14.50,
+    "description": "Gegrilltes Rindfleisch mit knusprigem Bacon, Cheddar, BBQ-Sauce und karamellisierten Zwiebeln."
   },
   {
-    "name": "Thai Curry mit Garnelen",
-    "price": 13.75,
-    "description": "Ein scharfes und aromatisches Curry mit Kokosmilch, Riesengarnelen, Bambussprossen und Jasminreis."
+    "name": "Club Sandwich",
+    "category": "Burger & Sandwiches",
+    "price": 10.90,
+    "description": "Toast mit gegrilltem Hähnchen, Bacon, Salat, Tomaten und Mayonnaise, serviert mit Pommes."
   },
   {
-    "name": "Wiener Schnitzel mit Bratkartoffeln",
-    "price": 16.90,
-    "description": "Knusprig paniertes Kalbsschnitzel, serviert mit goldbraunen Bratkartoffeln und einer Zitronenscheibe."
+    "name": "Veggie Sandwich",
+    "category": "Burger & Sandwiches",
+    "price": 9.50,
+    "description": "Frisches Sandwich mit Avocado, gegrilltem Gemüse, Rucola, Tomaten und Kräuter-Frischkäse."
   },
   {
     "name": "Pizza Margherita",
+    "category": "Pizza",
     "price": 9.50,
     "description": "Klassische italienische Pizza mit fruchtiger Tomatensauce, cremigem Mozzarella und frischem Basilikum."
   },
   {
-    "name": "Rinder-Burger mit Pommes",
-    "price": 13.50,
-    "description": "Saftiges Rindfleisch-Patty im Brioche-Brötchen mit Cheddar, Salat, Tomate, Haus-Sauce und knusprigen Pommes."
+    "name": "Pizza Salami",
+    "category": "Pizza",
+    "price": 11.50,
+    "description": "Pizza mit Tomatensauce, Mozzarella und würziger italienischer Salami."
+  },
+  {
+    "name": "Pizza Funghi",
+    "category": "Pizza",
+    "price": 10.90,
+    "description": "Pizza mit Tomatensauce, Mozzarella und frischen Champignons."
+  },
+  {
+    "name": "Pizza Prosciutto",
+    "category": "Pizza",
+    "price": 11.90,
+    "description": "Pizza mit Tomatensauce, Mozzarella und herzhaftem Schinken."
+  },
+  {
+    "name": "Pizza Quattro Formaggi",
+    "category": "Pizza",
+    "price": 12.90,
+    "description": "Pizza mit einer köstlichen Mischung aus Mozzarella, Gorgonzola, Parmesan und Gouda."
+  },
+  {
+    "name": "Caesar Salad",
+    "category": "Salad",
+    "price": 10.50,
+    "description": "Knackiger Römersalat mit Croûtons, gehobeltem Parmesan und cremigem Caesar-Dressing."
   },
   {
     "name": "Caesar Salad mit Hähnchen",
-    "price": 11.80,
-    "description": "Knackiger Römersalat mit gegrillten Hähnchenstreifen, Croûtons, gehobeltem Parmesan und cremigem Caesar-Dressing."
+    "category": "Salad",
+    "price": 12.50,
+    "description": "Römersalat mit gegrillten Hähnchenstreifen, Croûtons, Parmesan und Caesar-Dressing."
   },
   {
-    "name": "Lachsfilet auf Blattspinat",
-    "price": 17.50,
-    "description": "Zart gebratenes Lachsfilet auf frischem Rahmspinat, begleitet von kleinen Rosmarinkartoffeln."
+    "name": "Greek Salad",
+    "category": "Salad",
+    "price": 10.90,
+    "description": "Frischer Salat mit Gurken, Tomaten, roten Zwiebeln, Kalamata-Oliven, Feta und Olivenöl."
   },
   {
-    "name": "Tiramisu",
-    "price": 6.50,
-    "description": "Hausgemachtes italienisches Dessert aus mit Espresso getränkten Löffelbiskuits, Mascarpone-Creme und Kakaopulver."
+    "name": "Avocado Salad",
+    "category": "Salad",
+    "price": 11.50,
+    "description": "Frischer gemischter Salat mit Avocado, Cherry-Tomaten, Gurken und einem leichten Zitronendressing."
+  },
+  {
+    "name": "Tuna Salad",
+    "category": "Salad",
+    "price": 11.90,
+    "description": "Gemischter Salat mit Thunfisch, roten Zwiebeln, Mais, Tomaten und hausgemachtem Dressing."
   }
 ];
