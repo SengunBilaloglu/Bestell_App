@@ -15,9 +15,6 @@
 
 nav {
     width: 1440px;
-
-
-
 }
 
 ul {
@@ -66,3 +63,102 @@ ul {
     font-size: 24px;
     font-weight: bold;
 }
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.divider{
+    width: 100%;
+    height: 91px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 80px;
+}
+.divider-color{
+    background-color: var(--navbar);
+    width: 100%;
+    height: 60px;
+    z-index: -1;
+}
+.divider-info{
+    width: 1440px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    z-index: 1;
+}
+.divider-img{
+    height: 91px;
+    margin-left: 170px;
+}
+.divider-header{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--divider-text);
+}
+.meals-div{
+    width: 1440px;
+    margin-top: 25px;
+}
+.meal-div{
+    width: 713px;
+    height: 141px;
+    background-color: var(--meal-bg);
+    border-radius: 12px;
+    gap: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+}
+.meal-img{
+    width: 207px;
+    height: 121px;
+    border-radius: 12px;
+    
+}
+.meal-text{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  
+}
+.header-and-description{
+    gap: 8px;
+    width: 354px;
+}
+.meal-name{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--hero1);
+}
+.price-and-add{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    gap: 48px;
+}
+.meal-price{
+    font-size: 24px;
+    font-weight: 600;
+}
+.add-to-basket{
+    width: 115px;
+    height: 30px;
+    border:none;
+    border-radius: 20px;
+    /* padding: 5px 8px 5px 8px; */
+    /* gap: 8px; */
+    background-color: var(--divider-text);
+    align-items: center;
+    font-weight: 600;
+    color: var(--hero1);
+}
+
