@@ -45,7 +45,8 @@ ul {
     height: 200px;
     margin-top: -100px;
 }
-.hero-text-1{
+
+.hero-text-1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,23 +54,27 @@ ul {
     width: 870px;
     height: 75px;
 }
-.div-rating{
+
+.div-rating {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--rating-background);
 }
-.hero-text-2 > p{
+
+.hero-text-2>p {
     font-size: 24px;
     font-weight: bold;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.divider{
+
+.divider {
     width: 100%;
     height: 91px;
     display: flex;
@@ -78,13 +83,15 @@ main{
     position: relative;
     margin-top: 80px;
 }
-.divider-color{
+
+.divider-color {
     background-color: var(--navbar);
     width: 100%;
     height: 60px;
     z-index: -1;
 }
-.divider-info{
+
+.divider-info {
     width: 1440px;
     display: flex;
     justify-content: left;
@@ -93,20 +100,24 @@ main{
     position: absolute;
     z-index: 1;
 }
-.divider-img{
+
+.divider-img {
     height: 91px;
     margin-left: 170px;
 }
-.divider-header{
+
+.divider-header {
     font-size: 40px;
     font-weight: 700;
     color: var(--divider-text);
 }
-.meals-div{
+
+.meals-div {
     width: 1440px;
     margin-top: 25px;
 }
-.meal-div{
+
+.meal-div {
     width: 713px;
     height: 141px;
     background-color: var(--meal-bg);
@@ -117,42 +128,49 @@ main{
     align-items: center;
     padding: 10px;
 }
-.meal-img{
+
+.meal-img {
     width: 207px;
     height: 121px;
     border-radius: 12px;
-    
+
 }
-.meal-text{
+
+.meal-text {
     display: flex;
     justify-content: left;
     align-items: center;
-  
+
 }
-.header-and-description{
+
+.header-and-description {
     gap: 8px;
     width: 354px;
 }
-.meal-name{
+
+.meal-name {
     font-size: 24px;
     font-weight: 600;
     color: var(--hero1);
 }
-.price-and-add{
+
+.price-and-add {
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: center;
     gap: 48px;
 }
-.meal-price{
+
+.meal-price {
     font-size: 24px;
     font-weight: 600;
 }
-.add-to-basket{
+
+.add-to-basket {
     width: 115px;
     height: 30px;
-    border:none;
+    border: none;
     border-radius: 20px;
     /* padding: 5px 8px 5px 8px; */
     /* gap: 8px; */
@@ -160,5 +178,49 @@ main{
     align-items: center;
     font-weight: 600;
     color: var(--hero1);
+    position: relative;
+    z-index: 999;
+    cursor: pointer;
 }
 
+.add-to-basket:hover {
+    color: var(--navbar);
+}
+
+.add-to-basket:checked {
+    background-color: aqua;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 1440px;
+}
+
+.meals-div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    gap: 20px;
+}
+
+aside {
+    width: 435px;
+    min-width: 300px;
+    height: 794px;
+
+    background-color: #333333;
+    color: white;
+
+    border-radius: 12px;
+
+    position: sticky;
+    top: 15px;
+
+    padding: 20px;
+
+    text-align: center;
+    box-sizing: border-box;
+}
