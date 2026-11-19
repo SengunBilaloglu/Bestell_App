@@ -1,6 +1,7 @@
 let myDishes = [
   {
     "name": "Classic Cheeseburger",
+    "categoryID":1,
     "category": "Burger & Sandwiches",
     "price": 12.50,
     "description": "Saftiges Rindfleisch-Patty mit Cheddar, Salat, Tomaten, Zwiebeln und hausgemachter Sauce im Brioche-Brötchen.",
@@ -8,6 +9,7 @@ let myDishes = [
   },
   {
     "name": "Chicken Burger",
+    "categoryID":1,
     "category": "Burger & Sandwiches",
     "price": 11.90,
     "description": "Knuspriges Hähnchenfilet mit frischem Salat, Tomaten und cremiger Mayonnaise im Burger-Brötchen.",
@@ -15,6 +17,7 @@ let myDishes = [
   },
   {
     "name": "BBQ Bacon Burger",
+    "categoryID":1,
     "category": "Burger & Sandwiches",
     "price": 14.50,
     "description": "Gegrilltes Rindfleisch mit knusprigem Bacon, Cheddar, BBQ-Sauce und karamellisierten Zwiebeln.",
@@ -22,6 +25,7 @@ let myDishes = [
   },
   {
     "name": "Club Sandwich",
+    "categoryID":1,
     "category": "Burger & Sandwiches",
     "price": 10.90,
     "description": "Toast mit gegrilltem Hähnchen, Bacon, Salat, Tomaten und Mayonnaise, serviert mit Pommes.",
@@ -29,6 +33,7 @@ let myDishes = [
   },
   {
     "name": "Veggie Sandwich",
+    "categoryID":1,
     "category": "Burger & Sandwiches",
     "price": 9.50,
     "description": "Frisches Sandwich mit Avocado, gegrilltem Gemüse, Rucola, Tomaten und Kräuter-Frischkäse.",
@@ -36,6 +41,7 @@ let myDishes = [
   },
   {
     "name": "Pizza Margherita",
+    "categoryID":2,
     "category": "Pizza",
     "price": 9.50,
     "description": "Klassische italienische Pizza mit fruchtiger Tomatensauce, cremigem Mozzarella und frischem Basilikum.",
@@ -43,6 +49,7 @@ let myDishes = [
   },
   {
     "name": "Pizza Salami",
+    "categoryID":2,
     "category": "Pizza",
     "price": 11.50,
     "description": "Pizza mit Tomatensauce, Mozzarella und würziger italienischer Salami.",
@@ -50,6 +57,7 @@ let myDishes = [
   },
   {
     "name": "Pizza Funghi",
+    "categoryID":2,
     "category": "Pizza",
     "price": 10.90,
     "description": "Pizza mit Tomatensauce, Mozzarella und frischen Champignons.",
@@ -57,6 +65,7 @@ let myDishes = [
   },
   {
     "name": "Pizza Prosciutto",
+    "categoryID":2,
     "category": "Pizza",
     "price": 11.90,
     "description": "Pizza mit Tomatensauce, Mozzarella und herzhaftem Schinken.",
@@ -64,6 +73,7 @@ let myDishes = [
   },
   {
     "name": "Pizza Quattro Formaggi",
+    "categoryID":2,
     "category": "Pizza",
     "price": 12.90,
     "description": "Pizza mit einer köstlichen Mischung aus Mozzarella, Gorgonzola, Parmesan und Gouda.",
@@ -71,6 +81,7 @@ let myDishes = [
   },
   {
     "name": "Caesar Salad",
+    "categoryID":3,
     "category": "Salad",
     "price": 10.50,
     "description": "Knackiger Römersalat mit Croûtons, gehobeltem Parmesan und cremigem Caesar-Dressing.",
@@ -78,6 +89,7 @@ let myDishes = [
   },
   {
     "name": "Caesar Salad mit Hähnchen",
+    "categoryID":3,
     "category": "Salad",
     "price": 12.50,
     "description": "Römersalat mit gegrillten Hähnchenstreifen, Croûtons, Parmesan und Caesar-Dressing.",
@@ -85,6 +97,7 @@ let myDishes = [
   },
   {
     "name": "Greek Salad",
+    "categoryID":3,
     "category": "Salad",
     "price": 10.90,
     "description": "Frischer Salat mit Gurken, Tomaten, roten Zwiebeln, Kalamata-Oliven, Feta und Olivenöl.",
@@ -92,6 +105,7 @@ let myDishes = [
   },
   {
     "name": "Avocado Salad",
+    "categoryID":3,
     "category": "Salad",
     "price": 11.50,
     "description": "Frischer gemischter Salat mit Avocado, Cherry-Tomaten, Gurken und einem leichten Zitronendressing.",
@@ -99,6 +113,7 @@ let myDishes = [
   },
   {
     "name": "Tuna Salad",
+    "categoryID":3,
     "category": "Salad",
     "price": 11.90,
     "description": "Gemischter Salat mit Thunfisch, roten Zwiebeln, Mais, Tomaten und hausgemachtem Dressing.",
