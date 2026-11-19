@@ -72,6 +72,7 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }
 
 .divider {
@@ -103,7 +104,7 @@ main {
 
 .divider-img {
     height: 91px;
-    margin-left: 170px;
+    margin-left: 50px;
 }
 
 .divider-header {
@@ -206,13 +207,18 @@ main {
     gap: 20px;
 }
 
-aside {
+.basket {
     width: 435px;
     min-width: 300px;
     height: 794px;
 
-    background-color: #333333;
-    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+
+    background-color: var(--sticky);
+    color: var(--meal-bg);
 
     border-radius: 12px;
 
@@ -223,4 +229,20 @@ aside {
 
     text-align: center;
     box-sizing: border-box;
+}
+.basket >h3{
+    font-size: 32px;
+    font-weight: 700;
+    padding-top: 50px;
+}
+.basket-empty > p{
+    font-size: 24px;
+    font-weight: 500;
+  
+}
+.basket-empty{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
 }
