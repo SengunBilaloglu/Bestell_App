@@ -241,10 +241,15 @@ main {
   
 }
 .basket-empty{
-      display: flex;
+    display: none;
+      /* display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 36px;
+    gap: 36px; */
+}
+.basket-delete-div{
+    display: flex;
+    align-items: center;
 }
 
 footer{
@@ -269,4 +274,78 @@ footer >span{
 footer>a{
     text-decoration: none;
     color: rgba(255, 255, 255, 1);;
+}
+.basket-items{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 340px;
+}
+
+.basket-item{
+    width: 340px;
+    height: 129px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    background-color: var(--meal-bg);
+    color: var(--hero1);  
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.basket-item  p,a{
+    font-style: bold;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: 0%;
+}
+.delete-and-price{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.dish-name{
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.subtotal-div{
+        display: flex;
+    justify-content: space-between;
+}
+.delivery-fee-div{
+    display: flex;
+    justify-content: space-between;
+}
+.total-div{
+    display: flex;
+    justify-content: space-between;
+}
+.buy-now-price{
+    width: 320px;
+    height: 64px;
+    border-radius: 60px;
+    padding: 13px 55px 13px 55px;
+    color: var(--button-color);
+    background-color: var(--navbar);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0%;
+}
+.payment-div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+   
+}
+.basket-full{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
