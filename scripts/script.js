@@ -26,10 +26,32 @@ function render() {
         let mealDescriptionRef = document.getElementById(`meal-description-${i}`);
         mealDescriptionRef.innerHTML = myDishes[i].description;
         let mealPriceRef = document.getElementById(`meal-price-${i}`);
-        mealPriceRef.innerHTML = myDishes[i].price + "€";
+        mealPriceRef.innerHTML = myDishes[i].price.toString().replace(".", ",") + "€";
         let mealImgRef = document.getElementById(`meal-img-${i}`);
         mealImgRef.innerHTML = myDishes[i].img;
 
     }
 }
 
+
+function addToBasket(index) {
+    let id = myDishes[index].productId;
+    let indexNum = getProductIndex(id);
+    if (indexNum == -1) {
+        myOrders.push(
+            {
+                productId : myDishes[index].productId,
+                name : myDishes[index].name,
+                price : myDishes[index].price,
+                amount : 1
+            }
+        )
+    } else {
+        myOrders[indexNum].amount++;
+    }
+}
+
+function getProductIndex(dishId) {
+    let index = myOrders.findIndex(order => order.productId === dishId);
+    return index;
+}

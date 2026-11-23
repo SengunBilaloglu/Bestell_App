@@ -331,7 +331,7 @@ footer>a{
     width: 320px;
     height: 64px;
     border-radius: 60px;
-    padding: 13px 55px 13px 55px;
+    /* padding: 13px 55px 13px 55px; */
     color: var(--button-color);
     background-color: var(--navbar);
     font-size: 32px;
