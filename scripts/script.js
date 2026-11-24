@@ -40,8 +40,25 @@ function renderBasketItems(index) {
     basketRef.innerHTML += getBasketTemplate(index);
 }
 
-function renderChangeAmount(indexNum) {
+function increaseItemsAmount(indexNum) {
+    myOrders[indexNum].amount++;
+    let amountId = document.getElementById(`dish-amount-${indexNum}`);
+    amountId.innerHTML = myOrders[indexNum].amount;
+    let quantityId = document.getElementById(`quantity-${indexNum}`);
+    quantityId.innerHTML = myOrders[indexNum].amount;
+}
 
+function addItems(indexNum) {
+    indexNum = myOrders.length - 1;
+    renderBasketItems(indexNum);
+    let amountId = document.getElementById(`dish-amount-${indexNum}`);
+    amountId.innerHTML = myOrders[indexNum].amount;
+    let dishNameId = document.getElementById(`dish-name-${indexNum}`);
+    dishNameId.innerHTML = myOrders[indexNum].name;
+    let quantityId = document.getElementById(`quantity-${indexNum}`);
+    quantityId.innerHTML = myOrders[indexNum].amount;
+    let priceId = document.getElementById(`price-${indexNum}`);
+    priceId.innerHTML = myOrders[indexNum].price;
 }
 
 function addToBasket(index) {
@@ -57,23 +74,10 @@ function addToBasket(index) {
                 amount: 1
             }
         )
-        indexNum = myOrders.length - 1;
-        renderBasketItems(indexNum);
-        let amountId = document.getElementById(`dish-amount-${indexNum}`);
-        amountId.innerHTML = myOrders[indexNum].amount;
-        let dishNameId = document.getElementById(`dish-name-${indexNum}`);
-        dishNameId.innerHTML = myOrders[indexNum].name;
-        let quantityId = document.getElementById(`quantity-${indexNum}`);
-        quantityId.innerHTML = myOrders[indexNum].amount;
-        let priceId = document.getElementById(`price-${indexNum}`);
-        priceId.innerHTML = myOrders[indexNum].price;
-            
+        addItems(indexNum);
+
     } else {
-        myOrders[indexNum].amount++;
-        let amountId = document.getElementById(`dish-amount-${indexNum}`);
-        amountId.innerHTML = myOrders[indexNum].amount;
-        let quantityId = document.getElementById(`quantity-${indexNum}`);
-        quantityId.innerHTML = myOrders[indexNum].amount;        
+        increaseItemsAmount(indexNum);
     }
 
     document.getElementById("subtotal").innerHTML = calculateSubtotal();
