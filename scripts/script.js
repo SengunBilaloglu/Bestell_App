@@ -59,6 +59,8 @@ function addToBasket(index) {
     }
     renderBasket(indexNum);
     console.log(calculateSubtotal());
+    console.log(calculateTotalPrice(calculateSubtotal()));
+    
 }
 
 function getProductIndex(dishId) {
@@ -68,8 +70,7 @@ function getProductIndex(dishId) {
 
 function calculateSubtotal() {
     let subTotal = 0;
-    let deliveryFee = 4.99;
-    let Price = 0;
+
     if (myOrders.length == 0) {
         subTotal = 0;
     } else {
@@ -78,4 +79,10 @@ function calculateSubtotal() {
         }
     }
     return subTotal;
+}
+
+function calculateTotalPrice(subTotal) {
+    let deliveryFee = 4.99;
+    let totalPrice = subTotal + deliveryFee;
+    return totalPrice;
 }
