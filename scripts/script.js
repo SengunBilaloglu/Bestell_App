@@ -33,25 +33,49 @@ function render() {
     }
 }
 
+function renderBasket(index) {
+    let basketRef = document.getElementById("basket-items");
+    basketRef.innerHTML = "";
+
+    basketRef.innerHTML += getBasketTemplate(index);
+}
 
 function addToBasket(index) {
     let id = myDishes[index].productId;
     let indexNum = getProductIndex(id);
+
+
     if (indexNum == -1) {
         myOrders.push(
             {
-                productId : myDishes[index].productId,
-                name : myDishes[index].name,
-                price : myDishes[index].price,
-                amount : 1
+                productId: myDishes[index].productId,
+                name: myDishes[index].name,
+                price: myDishes[index].price,
+                amount: 1
             }
         )
     } else {
         myOrders[indexNum].amount++;
     }
+    renderBasket(indexNum);
+    console.log(calculateSubtotal());
 }
 
 function getProductIndex(dishId) {
     let index = myOrders.findIndex(order => order.productId === dishId);
     return index;
+}
+
+function calculateSubtotal() {
+    let subTotal = 0;
+    let deliveryFee = 4.99;
+    let Price = 0;
+    if (myOrders.length == 0) {
+        subTotal = 0;
+    } else {
+        for (let i = 0; i < myOrders.length; i++) {
+            subTotal+=myOrders[i].price * myOrders[i].amount;
+        }
+    }
+    return subTotal;
 }
