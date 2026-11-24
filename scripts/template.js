@@ -32,9 +32,9 @@ function getBasketTemplate(orderIndex) {
                                     <a id="delete-button" class="delete-button" onclick="deleteOrder(${orderIndex})">
                                         <img src="./assets/icons/delete.png">
                                     </a>
-                                    <a id="minus-button" onclick="decreaseOrder(${orderIndex})">-</a>
+                                    <a id="minus-button" onclick="decreaseItemsAmount(${orderIndex})">-</a>
                                     <p id="quantity-${orderIndex}">1</p>
-                                    <a id="plus-button" onclick="increaseOrder(${orderIndex})">+</a>
+                                    <a id="plus-button" onclick="increaseItemsAmount(${orderIndex})">+</a>
                                 </div>
                                 <div id="price-div">
                                     <p id="price-${orderIndex}">€</p>

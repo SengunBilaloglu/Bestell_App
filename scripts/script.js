@@ -48,6 +48,16 @@ function increaseItemsAmount(indexNum) {
     quantityId.innerHTML = myOrders[indexNum].amount;
 }
 
+function decreaseItemsAmount(indexNum) {
+    myOrders[indexNum].amount--;
+    let amountId = document.getElementById(`dish-amount-${indexNum}`);
+    amountId.innerHTML = myOrders[indexNum].amount;
+    let quantityId = document.getElementById(`quantity-${indexNum}`);
+    quantityId.innerHTML = myOrders[indexNum].amount;
+}
+
+
+
 function addItems(indexNum) {
     indexNum = myOrders.length - 1;
     renderBasketItems(indexNum);
@@ -83,9 +93,6 @@ function addToBasket(index) {
     document.getElementById("subtotal").innerHTML = calculateSubtotal();
     document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal());
     document.getElementById("buy-now-price").innerHTML = calculateTotalPrice(calculateSubtotal());
-    console.log(calculateSubtotal());
-    console.log(calculateTotalPrice(calculateSubtotal()));
-
 }
 
 function getProductIndex(dishId) {
@@ -112,13 +119,3 @@ function calculateTotalPrice(subTotal) {
     return totalPrice;
 }
 
-function decreaseOrder(orderIndex) {
-    myOrders[orderIndex].amount--;
-    let amountId = document.getElementById(`dish-amount-${orderIndex}`);
-    amountId.innerHTML = myOrders[indexNum].amount;
-}
-function increaseOrder(orderIndex) {
-    myOrders[orderIndex].amount++;
-    let amountId = document.getElementById(`dish-amount-${orderIndex}`);
-    amountId.innerHTML = myOrders[indexNum].amount;
-}
