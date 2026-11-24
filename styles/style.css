@@ -251,6 +251,9 @@ main {
     display: flex;
     align-items: center;
 }
+.basket-delete-div > a{
+    cursor: pointer;
+}
 
 footer{
     width: 100%;
@@ -313,6 +316,7 @@ footer>a{
     display: flex;
     justify-content: left;
     text-align: left;
+    width: 100%;
 }
 
 .subtotal-div{

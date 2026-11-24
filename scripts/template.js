@@ -21,23 +21,23 @@ function getMealsTemplate(index) {
                 </article>`
 }
 
-function getBasketTemplate(index) {
-    return `<div id="basket-item" class="basket-item">
+function getBasketTemplate(orderIndex) {
+    return `<div id="basket-item-${orderIndex}" class="basket-item">
                             <div class="dish-name">
-                                <p id="dish-name-${index}">1 x Veggie mushroom black burger</p>
+                                <p id="dish-amount-${orderIndex}"></p>x<p id="dish-name-${orderIndex}"> </p>
                             </div>
 
                             <div class="delete-and-price">
-                                <div id="basket-delete-div-${index}" class="basket-delete-div">
-                                    <a id="delete-button">
+                                <div id="basket-delete-div-${orderIndex}" class="basket-delete-div">
+                                    <a id="delete-button" class="delete-button" onclick="deleteOrder(${orderIndex})">
                                         <img src="./assets/icons/delete.png">
                                     </a>
-                                    <a id="minus-button">-</a>
-                                    <a id="quantity-${index}">1</a>
-                                    <a id="plus-button">+</a>
+                                    <a id="minus-button" onclick="decreaseOrder(${orderIndex})">-</a>
+                                    <p id="quantity-${orderIndex}">1</p>
+                                    <a id="plus-button" onclick="increaseOrder(${orderIndex})">+</a>
                                 </div>
                                 <div id="price-div">
-                                    <p id="price-${index}">€</p>
+                                    <p id="price-${orderIndex}">€</p>
                                 </div>
                             </div>
                         </div>

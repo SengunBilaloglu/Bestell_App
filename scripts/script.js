@@ -33,17 +33,20 @@ function render() {
     }
 }
 
-function renderBasket(index) {
+function renderBasketItems(index) {
     let basketRef = document.getElementById("basket-items");
-    basketRef.innerHTML = "";
+    // basketRef.innerHTML = "";
 
     basketRef.innerHTML += getBasketTemplate(index);
+}
+
+function renderChangeAmount(indexNum) {
+
 }
 
 function addToBasket(index) {
     let id = myDishes[index].productId;
     let indexNum = getProductIndex(id);
-
 
     if (indexNum == -1) {
         myOrders.push(
@@ -54,13 +57,31 @@ function addToBasket(index) {
                 amount: 1
             }
         )
+        indexNum = myOrders.length - 1;
+        renderBasketItems(indexNum);
+        let amountId = document.getElementById(`dish-amount-${indexNum}`);
+        amountId.innerHTML = myOrders[indexNum].amount;
+        let dishNameId = document.getElementById(`dish-name-${indexNum}`);
+        dishNameId.innerHTML = myOrders[indexNum].name;
+        let quantityId = document.getElementById(`quantity-${indexNum}`);
+        quantityId.innerHTML = myOrders[indexNum].amount;
+        let priceId = document.getElementById(`price-${indexNum}`);
+        priceId.innerHTML = myOrders[indexNum].price;
+            
     } else {
         myOrders[indexNum].amount++;
+        let amountId = document.getElementById(`dish-amount-${indexNum}`);
+        amountId.innerHTML = myOrders[indexNum].amount;
+        let quantityId = document.getElementById(`quantity-${indexNum}`);
+        quantityId.innerHTML = myOrders[indexNum].amount;        
     }
-    renderBasket(indexNum);
+
+    document.getElementById("subtotal").innerHTML = calculateSubtotal();
+    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal());
+    document.getElementById("buy-now-price").innerHTML = calculateTotalPrice(calculateSubtotal());
     console.log(calculateSubtotal());
     console.log(calculateTotalPrice(calculateSubtotal()));
-    
+
 }
 
 function getProductIndex(dishId) {
@@ -75,7 +96,7 @@ function calculateSubtotal() {
         subTotal = 0;
     } else {
         for (let i = 0; i < myOrders.length; i++) {
-            subTotal+=myOrders[i].price * myOrders[i].amount;
+            subTotal += myOrders[i].price * myOrders[i].amount;
         }
     }
     return subTotal;
@@ -85,4 +106,15 @@ function calculateTotalPrice(subTotal) {
     let deliveryFee = 4.99;
     let totalPrice = subTotal + deliveryFee;
     return totalPrice;
+}
+
+function decreaseOrder(orderIndex) {
+    myOrders[orderIndex].amount--;
+    let amountId = document.getElementById(`dish-amount-${orderIndex}`);
+    amountId.innerHTML = myOrders[indexNum].amount;
+}
+function increaseOrder(orderIndex) {
+    myOrders[orderIndex].amount++;
+    let amountId = document.getElementById(`dish-amount-${orderIndex}`);
+    amountId.innerHTML = myOrders[indexNum].amount;
 }
