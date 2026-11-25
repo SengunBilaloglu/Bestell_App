@@ -33,11 +33,26 @@ function render() {
     }
 }
 
-function renderBasketItems(index) {
+function renderBasketItems() {
     let basketRef = document.getElementById("basket-items");
-    // basketRef.innerHTML = "";
+    basketRef.innerHTML = "";
 
-    basketRef.innerHTML += getBasketTemplate(index);
+    for (let i = 0; i < myOrders.length; i++) {
+        basketRef.innerHTML += getBasketTemplate(i);
+    }
+    for (let i = 0; i < myOrders.length; i++) {
+        let amountId = document.getElementById(`dish-amount-${i}`);
+        amountId.innerHTML = myOrders[i].amount;
+
+        let dishNameId = document.getElementById(`dish-name-${i}`);
+        dishNameId.innerHTML = myOrders[i].name;
+
+        let quantityId = document.getElementById(`quantity-${i}`);
+        quantityId.innerHTML = myOrders[i].amount;
+
+        let priceId = document.getElementById(`price-${i}`);
+        priceId.innerHTML = (myOrders[i].price * myOrders[i].amount).toFixed(2) + " €";
+    }
 }
 
 function increaseItemsAmount(indexNum) {
@@ -57,10 +72,11 @@ function decreaseItemsAmount(indexNum) {
 }
 
 
-
 function addItems(indexNum) {
     indexNum = myOrders.length - 1;
-    renderBasketItems(indexNum);
+    let basketRef = document.getElementById("basket-items");
+    basketRef.innerHTML += getBasketTemplate(indexNum);
+    // renderBasketItems(indexNum);
     let amountId = document.getElementById(`dish-amount-${indexNum}`);
     amountId.innerHTML = myOrders[indexNum].amount;
     let dishNameId = document.getElementById(`dish-name-${indexNum}`);
@@ -119,3 +135,11 @@ function calculateTotalPrice(subTotal) {
     return totalPrice;
 }
 
+function deleteOrder(orderIndex) {
+    myOrders.splice(orderIndex, 1);
+    renderBasketItems();
+
+    document.getElementById("subtotal").innerHTML = calculateSubtotal();
+    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal());
+    document.getElementById("buy-now-price").innerHTML = calculateTotalPrice(calculateSubtotal());
+}
