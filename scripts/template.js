@@ -29,7 +29,6 @@ function getBasketTemplate(orderIndex) {
                                         <img src="./assets/icons/delete.png">
                                     </a>
                             </div>
-
                             <div class="delete-and-price">
                                 <div id="basket-delete-div-${orderIndex}" class="basket-delete-div">
                                     <a id="delete-button-${orderIndex}" class="delete-button" onclick="deleteOrder(${orderIndex})">

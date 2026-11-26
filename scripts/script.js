@@ -74,6 +74,7 @@ function increaseItemsAmount(indexNum) {
     } else {
         showMinusButton(indexNum);
     }
+    document.getElementById(`add-to-basket-${indexNum}`).innerHTML="Added " + myOrders[indexNum].amount;
     setPrice();
 }
 
@@ -91,12 +92,12 @@ function decreaseItemsAmount(indexNum) {
     } else {
         showMinusButton(indexNum);
     }
+    document.getElementById(`add-to-basket-${indexNum}`).innerHTML="Added " + myOrders[indexNum].amount;
     setPrice();
 }
 
-
 function addItems(indexNum) {
-    indexNum = myOrders.length - 1;
+    // indexNum = myOrders.length - 1;
     let basketRef = document.getElementById("basket-items");
     basketRef.innerHTML += getBasketTemplate(indexNum);
     // renderBasketItems(indexNum);
@@ -118,7 +119,8 @@ function addItems(indexNum) {
 
 function addToBasket(index) {
     let id = myDishes[index].productId;
-    let indexNum = getProductIndex(id);
+    let indexNum = getOrderIndex(id);
+    
     document.getElementById("basket-full").style.display = "flex";
     document.getElementById("basket-empty").style.display = "none";
 
@@ -130,16 +132,22 @@ function addToBasket(index) {
                 price: myDishes[index].price,
                 amount: 1
             }
-        )
+        );
+
+        indexNum = myOrders.length - 1;
         addItems(indexNum);
 
+        document.getElementById(`add-to-basket-${index}`).innerHTML="Added " + myOrders[indexNum].amount;
+        
     } else {
         increaseItemsAmount(indexNum);
+        document.getElementById(`add-to-basket-${index}`).innerHTML="Added " + myOrders[indexNum].amount;
     }
+    
     setPrice();
 }
 
-function getProductIndex(dishId) {
+function getOrderIndex(dishId) {
     let index = myOrders.findIndex(order => order.productId === dishId);
     return index;
 }
@@ -164,6 +172,10 @@ function calculateTotalPrice(subTotal) {
 }
 
 function deleteOrder(orderIndex) {
+    
+       
+    document.getElementById(`add-to-basket-${getDishIndex(orderIndex)}`).innerHTML="Add to basket";
+
     myOrders.splice(orderIndex, 1);
     renderBasketItems();
     if (myOrders.length > 0) {
@@ -174,6 +186,11 @@ function deleteOrder(orderIndex) {
         document.getElementById("basket-empty").style.display = "flex";
     }
     setPrice();
+}
+function getDishIndex(orderIndex) {
+    let productIdOrder=myOrders[orderIndex].productId;
+    let indexofDishes=myDishes.findIndex(order => order.productId === productIdOrder); 
+    return indexofDishes;
 }
 
 function setPrice() {
@@ -187,6 +204,7 @@ function hideMinusButton(index) {
     document.getElementById(`delete-button-${index}`).style.display = "flex";
     document.getElementById(`delete-button2-${index}`).style.display = "none";
 }
+
 function showMinusButton(index) {
     document.getElementById(`minus-button-${index}`).style.display = "flex";
     document.getElementById(`delete-button-${index}`).style.display = "none";
