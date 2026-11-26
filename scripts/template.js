@@ -25,16 +25,19 @@ function getBasketTemplate(orderIndex) {
     return `<div id="basket-item-${orderIndex}" class="basket-item">
                             <div class="dish-name">
                                 <p id="dish-amount-${orderIndex}"></p>x<p id="dish-name-${orderIndex}"> </p>
+                                 <a id="delete-button2-${orderIndex}" class="delete-button" onclick="deleteOrder(${orderIndex})">
+                                        <img src="./assets/icons/delete.png">
+                                    </a>
                             </div>
 
                             <div class="delete-and-price">
                                 <div id="basket-delete-div-${orderIndex}" class="basket-delete-div">
-                                    <a id="delete-button" class="delete-button" onclick="deleteOrder(${orderIndex})">
+                                    <a id="delete-button-${orderIndex}" class="delete-button" onclick="deleteOrder(${orderIndex})">
                                         <img src="./assets/icons/delete.png">
                                     </a>
-                                    <a id="minus-button" onclick="decreaseItemsAmount(${orderIndex})">-</a>
+                                    <a id="minus-button-${orderIndex}" class="minus-button" onclick="decreaseItemsAmount(${orderIndex})"> - </a>
                                     <p id="quantity-${orderIndex}">1</p>
-                                    <a id="plus-button" onclick="increaseItemsAmount(${orderIndex})">+</a>
+                                    <a id="plus-button-${orderIndex}" class="plus-button" onclick="increaseItemsAmount(${orderIndex})"> + </a>
                                 </div>
                                 <div id="price-div">
                                     <p id="price-${orderIndex}">€</p>

@@ -51,7 +51,17 @@ function renderBasketItems() {
         quantityId.innerHTML = myOrders[i].amount;
 
         let priceId = document.getElementById(`price-${i}`);
-        priceId.innerHTML = (myOrders[i].price * myOrders[i].amount).toFixed(2) + " €";
+        priceId.innerHTML = (myOrders[i].price * myOrders[i].amount).toFixed(2).toString().replace(".", ",") + "€";
+
+        if (myOrders[i].amount == 1) {
+            document.getElementById(`minus-button-${i}`).style.display = "none";
+            document.getElementById(`delete-button-${i}`).style.display = "flex";
+            document.getElementById(`delete-button2-${i}`).style.display = "none";
+        } else {
+            document.getElementById(`minus-button-${i}`).style.display = "flex";
+            document.getElementById(`delete-button-${i}`).style.display = "none";
+            document.getElementById(`delete-button2-${i}`).style.display = "flex";
+        }
     }
 }
 
@@ -61,6 +71,24 @@ function increaseItemsAmount(indexNum) {
     amountId.innerHTML = myOrders[indexNum].amount;
     let quantityId = document.getElementById(`quantity-${indexNum}`);
     quantityId.innerHTML = myOrders[indexNum].amount;
+    let priceId = document.getElementById(`price-${indexNum}`);
+    priceId.innerHTML = (myOrders[indexNum].price * myOrders[indexNum].amount).toFixed(2).toString().replace(".", ",") + "€";
+
+    // document.getElementById("minus-button").style.display = "flex";
+    // document.getElementById("delete-button").style.display = "none";
+    if (myOrders[indexNum].amount == 1) {
+        document.getElementById(`minus-button-${indexNum}`).style.display = "none";
+        document.getElementById(`delete-button-${indexNum}`).style.display = "flex";
+        document.getElementById(`delete-button2-${indexNum}`).style.display = "none";
+    } else {
+        document.getElementById(`minus-button-${indexNum}`).style.display = "flex";
+        document.getElementById(`delete-button-${indexNum}`).style.display = "none";
+        document.getElementById(`delete-button2-${indexNum}`).style.display = "flex";
+    }
+    document.getElementById("subtotal").innerHTML = calculateSubtotal().toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("buy-now-price").innerHTML = "Buy now ( "+calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€ )";
+
 }
 
 function decreaseItemsAmount(indexNum) {
@@ -69,6 +97,21 @@ function decreaseItemsAmount(indexNum) {
     amountId.innerHTML = myOrders[indexNum].amount;
     let quantityId = document.getElementById(`quantity-${indexNum}`);
     quantityId.innerHTML = myOrders[indexNum].amount;
+    let priceId = document.getElementById(`price-${indexNum}`);
+    priceId.innerHTML = (myOrders[indexNum].price * myOrders[indexNum].amount).toFixed(2).toString().replace(".", ",") + "€";
+
+    if (myOrders[indexNum].amount == 1) {
+        document.getElementById(`minus-button-${indexNum}`).style.display = "none";
+        document.getElementById(`delete-button-${indexNum}`).style.display = "flex";
+        document.getElementById(`delete-button2-${indexNum}`).style.display = "none";
+    } else {
+        document.getElementById(`minus-button-${indexNum}`).style.display = "flex";
+        document.getElementById(`delete-button-${indexNum}`).style.display = "none";
+        document.getElementById(`delete-button2-${indexNum}`).style.display = "flex";
+    }
+    document.getElementById("subtotal").innerHTML = calculateSubtotal().toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("buy-now-price").innerHTML = "Buy now ( "+calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€ )";
 }
 
 
@@ -84,12 +127,24 @@ function addItems(indexNum) {
     let quantityId = document.getElementById(`quantity-${indexNum}`);
     quantityId.innerHTML = myOrders[indexNum].amount;
     let priceId = document.getElementById(`price-${indexNum}`);
-    priceId.innerHTML = myOrders[indexNum].price;
+    priceId.innerHTML = myOrders[indexNum].price.toString().replace(".", ",") + "€";
+
+    if (myOrders[indexNum].amount == 1) {
+        document.getElementById(`minus-button-${indexNum}`).style.display = "none";
+        document.getElementById(`delete-button-${indexNum}`).style.display = "flex";
+        document.getElementById(`delete-button2-${indexNum}`).style.display = "none";
+    } else {
+        document.getElementById(`minus-button-${indexNum}`).style.display = "flex";
+        document.getElementById(`delete-button-${indexNum}`).style.display = "none";
+        document.getElementById(`delete-button2-${indexNum}`).style.display = "flex";
+    }
 }
 
 function addToBasket(index) {
     let id = myDishes[index].productId;
     let indexNum = getProductIndex(id);
+    document.getElementById("basket-full").style.display = "flex";
+    document.getElementById("basket-empty").style.display = "none";
 
     if (indexNum == -1) {
         myOrders.push(
@@ -106,9 +161,9 @@ function addToBasket(index) {
         increaseItemsAmount(indexNum);
     }
 
-    document.getElementById("subtotal").innerHTML = calculateSubtotal();
-    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal());
-    document.getElementById("buy-now-price").innerHTML = calculateTotalPrice(calculateSubtotal());
+    document.getElementById("subtotal").innerHTML = calculateSubtotal().toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("buy-now-price").innerHTML = "Buy now ( "+calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€ )";
 }
 
 function getProductIndex(dishId) {
@@ -138,8 +193,18 @@ function calculateTotalPrice(subTotal) {
 function deleteOrder(orderIndex) {
     myOrders.splice(orderIndex, 1);
     renderBasketItems();
+    if (myOrders.length > 0) {
 
-    document.getElementById("subtotal").innerHTML = calculateSubtotal();
-    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal());
-    document.getElementById("buy-now-price").innerHTML = calculateTotalPrice(calculateSubtotal());
+    document.getElementById("subtotal").innerHTML = calculateSubtotal().toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("buy-now-price").innerHTML = "Buy now ( "+calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€ )";
+    }
+    else {
+        document.getElementById("basket-full").style.display = "none";
+        document.getElementById("basket-empty").style.display = "flex";
+    }
+
+    document.getElementById("subtotal").innerHTML = calculateSubtotal().toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("total").innerHTML = calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€";
+    document.getElementById("buy-now-price").innerHTML = "Buy now ( "+calculateTotalPrice(calculateSubtotal()).toFixed(2).toString().replace(".", ",") + "€ )";
 }
