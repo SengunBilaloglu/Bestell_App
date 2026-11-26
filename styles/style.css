@@ -258,6 +258,9 @@ main {
         width: 24px;
     height: 24px;
 }
+.delete-button:hover{
+    cursor:pointer;
+}
 
 footer{
     width: 100%;
