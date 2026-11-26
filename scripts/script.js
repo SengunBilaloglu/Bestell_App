@@ -74,7 +74,7 @@ function increaseItemsAmount(indexNum) {
     } else {
         showMinusButton(indexNum);
     }
-    document.getElementById(`add-to-basket-${indexNum}`).innerHTML="Added " + myOrders[indexNum].amount;
+    document.getElementById(`add-to-basket-${getDishIndex(indexNum)}`).innerHTML="Added " + myOrders[indexNum].amount;
     setPrice();
 }
 
@@ -92,7 +92,7 @@ function decreaseItemsAmount(indexNum) {
     } else {
         showMinusButton(indexNum);
     }
-    document.getElementById(`add-to-basket-${indexNum}`).innerHTML="Added " + myOrders[indexNum].amount;
+    document.getElementById(`add-to-basket-${getDishIndex(indexNum)}`).innerHTML="Added " + myOrders[indexNum].amount;
     setPrice();
 }
 
@@ -118,8 +118,7 @@ function addItems(indexNum) {
 }
 
 function addToBasket(index) {
-    let id = myDishes[index].productId;
-    let indexNum = getOrderIndex(id);
+    let indexNum = getOrderIndex(index);
     
     document.getElementById("basket-full").style.display = "flex";
     document.getElementById("basket-empty").style.display = "none";
@@ -147,9 +146,16 @@ function addToBasket(index) {
     setPrice();
 }
 
-function getOrderIndex(dishId) {
-    let index = myOrders.findIndex(order => order.productId === dishId);
-    return index;
+function getOrderIndex(dishIndex) {
+    let productIdDish=myDishes[dishIndex].productId;
+    let indexOfOrders = myOrders.findIndex(order => order.productId === productIdDish);
+    return indexOfOrders;
+}
+
+function getDishIndex(orderIndex) {
+    let productIdOrder=myOrders[orderIndex].productId;
+    let indexofDishes=myDishes.findIndex(order => order.productId === productIdOrder); 
+    return indexofDishes;
 }
 
 function calculateSubtotal() {
@@ -171,9 +177,7 @@ function calculateTotalPrice(subTotal) {
     return totalPrice;
 }
 
-function deleteOrder(orderIndex) {
-    
-       
+function deleteOrder(orderIndex) {       
     document.getElementById(`add-to-basket-${getDishIndex(orderIndex)}`).innerHTML="Add to basket";
 
     myOrders.splice(orderIndex, 1);
@@ -187,11 +191,7 @@ function deleteOrder(orderIndex) {
     }
     setPrice();
 }
-function getDishIndex(orderIndex) {
-    let productIdOrder=myOrders[orderIndex].productId;
-    let indexofDishes=myDishes.findIndex(order => order.productId === productIdOrder); 
-    return indexofDishes;
-}
+
 
 function setPrice() {
     document.getElementById("subtotal").innerHTML = calculateSubtotal().toFixed(2).toString().replace(".", ",") + "€";
