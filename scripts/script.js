@@ -210,3 +210,12 @@ function showMinusButton(index) {
     document.getElementById(`delete-button-${index}`).style.display = "none";
     document.getElementById(`delete-button2-${index}`).style.display = "flex";
 }
+
+const dialog = document.getElementById("myDialog");
+const openBtn = document.getElementById("buy-now-price");
+
+openBtn.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+
